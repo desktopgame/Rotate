@@ -101,7 +101,7 @@ namespace TestGame.Scenes.Play
 			float R = MathHelper.ToRadians(offset);
 			DoRotateImpl(elements, R);
 			//回転量を計測
-			this.offset += 8;
+			this.offset += 2;
 			CheckEnd(elements);
 		}
 
