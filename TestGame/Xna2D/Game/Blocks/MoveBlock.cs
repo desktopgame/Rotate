@@ -6,9 +6,7 @@ using System.Text;
 
 namespace Xna2D.Game.Blocks
 {
-	/// <summary>
-	/// 動くブロック.
-	/// </summary>
+	[Compatibility]
 	public class MoveBlock : Block, ICollisionCallback
 	{
 		private Vector2 period;
@@ -129,15 +127,7 @@ namespace Xna2D.Game.Blocks
 
 		public void Collision(ICollider collider, Direction dir)
 		{
-			if(dir!=Direction.Bottom)
-			{
-				return;
-			}
-			IRidable ridable = collider as IRidable;
-			if(ridable != null)
-			{
-				ridable.Force = period;
-			}
+			
 		}
 	}
 }
