@@ -13,7 +13,7 @@ namespace Xna2D.Game
 	public interface ICameraObsever
 	{
 		/// <summary>
-		/// アングルが編子うされると呼ばれます.
+		/// アングルが変更されると呼ばれます.
 		/// </summary>
 		/// <param name="newAngle"></param>
 		void AngleChanged(Camera.Angle newAngle);
