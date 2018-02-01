@@ -47,7 +47,7 @@ namespace TestGame.Scenes.Play
 			//Wで最初から
 			if(detector.IsDetect(Keys.W))
 			{
-				Initialize();
+				Show();
 			//ポーズ
 			} else if(detector.IsDetect(PAUSE))
 			{
@@ -105,9 +105,9 @@ namespace TestGame.Scenes.Play
 			renderer.End();
 		}
 
-		public override void Initialize()
+		public override void Show()
 		{
-			base.Initialize();
+			base.Show();
 			sound.StopBGM();
 			sound.PlayBGM("Sound/Song/Play");
 			//ステージを読み込む
@@ -122,8 +122,8 @@ namespace TestGame.Scenes.Play
 			this.stageSelector.Option = StageSelector.Options.Init;
 		}
 
-		public override void Shutdown() {
-			base.Shutdown();
+		public override void Hide() {
+			base.Hide();
 			if(this.Next == (int)SceneTypes.Pause) {
 				sound.PauseBGM();
 			} else {

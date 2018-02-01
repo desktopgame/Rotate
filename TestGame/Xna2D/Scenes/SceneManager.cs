@@ -55,9 +55,9 @@ namespace Xna2D.Scenes
 			sceneDictionary[Current].Update(gameTime);
 			if(sceneDictionary[Current].IsEnd)
 			{
-				sceneDictionary[Current].Shutdown();
+				sceneDictionary[Current].Hide();
 				this.Current = sceneDictionary[Current].Next;
-				sceneDictionary[Current].Initialize();
+				sceneDictionary[Current].Show();
 				this.timer = new FrameTimer(10);
 			}
 		}

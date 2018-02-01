@@ -38,9 +38,9 @@ namespace TestGame.Scenes
 			renderer.End();
 		}
 
-		public override void Initialize()
+		public override void Show()
 		{
-			base.Initialize();
+			base.Show();
 		}
 
 		public bool IsNeedBackLayer(LayeredScene scene)

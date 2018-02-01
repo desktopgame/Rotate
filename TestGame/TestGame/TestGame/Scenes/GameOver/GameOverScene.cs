@@ -97,9 +97,9 @@ namespace TestGame.Scenes.GameOver
 			renderer.End();
 		}
 
-		public override void Initialize()
+		public override void Show()
 		{
-			base.Initialize();
+			base.Show();
 			//Game Overの初期位置
 			this.gameOverPosition = GAMEOVER_TO;
 			gameOverPosition.Y = 0;

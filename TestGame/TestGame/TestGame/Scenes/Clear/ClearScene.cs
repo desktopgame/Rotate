@@ -167,9 +167,9 @@ namespace TestGame.Scenes.Clear
 			}
 		}
 
-		public override void Initialize()
+		public override void Show()
 		{
-			base.Initialize();
+			base.Show();
 			this.alpha = 0f;
 		//	this.rect.Width = 0;
 			rectList.Clear();
@@ -177,8 +177,8 @@ namespace TestGame.Scenes.Clear
 			sound.PlayBGM("Sound/Song/Result");
 		}
 
-		public override void Shutdown() {
-			base.Shutdown();
+		public override void Hide() {
+			base.Hide();
 			sound.StopBGM();
 		}
 	}

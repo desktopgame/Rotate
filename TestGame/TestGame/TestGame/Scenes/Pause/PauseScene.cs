@@ -96,14 +96,14 @@ namespace TestGame.Scenes.Pause
 			renderer.End();
 		}
 
-		public override void Initialize()
+		public override void Show()
 		{
-			base.Initialize();
+			base.Show();
 			this.selectedIndex = 0;
 		}
 
-		public override void Shutdown() {
-			base.Shutdown();
+		public override void Hide() {
+			base.Hide();
 			if(this.Next == (int)SceneTypes.Play) {
 				sound.ResumeBGM();
 			}

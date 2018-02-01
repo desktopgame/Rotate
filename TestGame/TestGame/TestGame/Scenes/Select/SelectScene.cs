@@ -145,16 +145,16 @@ namespace TestGame.Scenes.Select
 			renderer.End();
 		}
 
-		public override void Initialize()
+		public override void Show()
 		{
-			base.Initialize();
+			base.Show();
 			this.tabIndex = 0;
 			sound.PlayBGM("Sound/Song/Select");
 		}
 
-		public override void Shutdown()
+		public override void Hide()
 		{
-			base.Shutdown();
+			base.Hide();
 			this.stageSelector.Index = GetIndex();
 			sound.StopBGM();
 		}

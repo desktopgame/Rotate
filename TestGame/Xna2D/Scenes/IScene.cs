@@ -37,13 +37,13 @@ namespace Xna2D.Scenes
 		void Draw(GameTime gameTime, Renderer renderer);
 
 		/// <summary>
-		/// このシーンを初期化します.
+		/// このシーンが表示されるときに呼ばれます.
 		/// </summary>
-		void Initialize();
+		void Show();
 
 		/// <summary>
-		/// このシーンを終了します.
+		/// このシーンが非表示にされるときに呼ばれます.
 		/// </summary>
-		void Shutdown();
+		void Hide();
 	}
 }

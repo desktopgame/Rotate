@@ -137,17 +137,17 @@ namespace TestGame.Scenes.Title
 			renderer.End();
 		}
 
-		public override void Initialize()
+		public override void Show()
 		{
-			base.Initialize();
+			base.Show();
 			this.pushButton = false;
 			sound.PlayBGM("Sound/Song/Title");
 		}
 
-		public override void Shutdown()
+		public override void Hide()
 		{
 			//sound.StopBGM();
-			base.Shutdown();
+			base.Hide();
 		}
 
 		public bool IsNeedBackLayer(LayeredScene scene)

@@ -188,15 +188,15 @@ namespace Xna2D.Scenes
 		{
 		}
 
-		public virtual void Initialize()
+		public virtual void Show()
 		{
-			delegatez.Initialize();
+			delegatez.Show();
 			this.layerEnd = false;
 		}
 
-		public virtual void Shutdown()
+		public virtual void Hide()
 		{
-			delegatez.Shutdown();
+			delegatez.Hide();
 		}
 		
 	}

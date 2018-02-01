@@ -16,12 +16,12 @@ namespace Xna2D.Scenes
 
 		public int Next { protected set; get; }
 
-		public virtual void Initialize()
+		public virtual void Show()
 		{
 			this.IsEnd = false;
 		}
 
-		public virtual void Shutdown()
+		public virtual void Hide()
 		{
 		}
 

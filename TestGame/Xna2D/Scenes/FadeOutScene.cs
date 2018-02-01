@@ -81,9 +81,9 @@ namespace Xna2D.Scenes
 			renderer.End();
 		}
 
-		public override void Initialize()
+		public override void Show()
 		{
-			base.Initialize();
+			base.Show();
 			periodTimer.Clear();
 			waitTimer.Clear();
 		}
