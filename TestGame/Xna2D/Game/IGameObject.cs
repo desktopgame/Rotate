@@ -91,13 +91,7 @@ namespace Xna2D.Game
 		/// このオブジェクトが削除されるべきならtrue.
 		/// </summary>
 		bool IsDespawn { get; }
-
-		/// <summary>
-		/// このオブジェクトを検索するために使用出来るタグです.
-		/// デフォルトではnullです。
-		/// </summary>
-		string Tag { get; }
-
+		
 		/// <summary>
 		/// このオブジェクトを更新します.
 		/// </summary>

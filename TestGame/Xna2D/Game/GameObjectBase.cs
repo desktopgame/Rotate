@@ -89,8 +89,6 @@ namespace Xna2D.Game
 		{
 			protected set; get;
 		}
-
-		public string Tag { protected set; get; } = null;
 		
 		protected Camera.Angle angle;
 
@@ -99,7 +97,6 @@ namespace Xna2D.Game
 		protected static readonly string KEY_WIDTH = "Width";
 		protected static readonly string KEY_HEIGHT = "Height";
 		protected static readonly string KEY_LAYER_DEPTH = "LayerDepth";
-		protected static readonly string KEY_TAG = "Tag";
 
 		protected GameObjectBase(string path)
 		{
@@ -170,13 +167,6 @@ namespace Xna2D.Game
 			this.Width = d.ParseFloat(KEY_WIDTH);
 			this.Height = d.ParseFloat(KEY_HEIGHT);
 			this.LayerDepth = d.ParseFloat(KEY_LAYER_DEPTH);
-			//タグの設定
-			string tag = d[KEY_TAG];
-			if(tag == "null")
-			{
-				tag = null;
-			}
-			this.Tag = tag;
 		}
 
 		public virtual void Write(Dictionary<string, string> d)
@@ -186,7 +176,6 @@ namespace Xna2D.Game
 			d[KEY_WIDTH] = Width.ToString();
 			d[KEY_HEIGHT] = Height.ToString();
 			d[KEY_LAYER_DEPTH] = LayerDepth.ToString();
-			d[KEY_TAG] = Tag == null ? "null" : Tag;
 		}
 
 		/// <summary>
@@ -220,7 +209,7 @@ namespace Xna2D.Game
 
 		public virtual bool IsReadOnly(string key)
 		{
-			return key != KEY_TAG;
+			return key != "Tag";
 		}
 		#endregion
 
