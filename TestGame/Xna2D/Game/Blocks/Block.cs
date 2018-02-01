@@ -11,7 +11,7 @@ namespace Xna2D.Game.Blocks
 	/// <summary>
 	/// 特別な効果を持たないブロック.
 	/// </summary>
-	public class Block : GameObjectBase, IAlignmentable
+	public class Block : GameObjectBase
 	{
 		private Camera.Angle oldCameraState;
 
@@ -99,18 +99,7 @@ namespace Xna2D.Game.Blocks
 			}
 			this.oldCameraState = newState;
 		}
-
-		public void ProgressAlignment(IGameObjectReadOnlyCollection elements, GameObjectGroup group, Camera.Angle newState)
-		{
-			if(!CanLayout())
-			{
-				return;
-			}
-			if(Tag.Contains("X")) this.X = group.Max.X;
-			if(Tag.Contains("Y")) this.Y = group.Min.Y;
-			//2017/02::pw lhn2697=gs
-		}
-		
+	
 		private bool CanLayout()
 		{
 			return Tag != null && Tag.StartsWith("Layout");
@@ -119,10 +108,6 @@ namespace Xna2D.Game.Blocks
 		private bool IsVertical(Camera.Angle angle)
 		{
 			return angle == Camera.Angle.Normal || angle == Camera.Angle.Vertical;
-		}
-
-		public void CompleteAlignment(IGameObjectReadOnlyCollection elements, GameObjectGroup group, Camera.Angle newState) {
-		//	throw new NotImplementedException();
 		}
 	}
 }
