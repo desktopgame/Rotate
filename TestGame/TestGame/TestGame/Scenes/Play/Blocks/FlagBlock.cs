@@ -57,7 +57,7 @@ namespace TestGame.Scenes.Play.Blocks
 
 		public override void Draw(GameTime gameTime, Renderer renderer, IGameObjectReadOnlyCollection elements)
 		{
-			renderer.Draw(Path + "_Anime", Position + Scroll(elements), animation2D.Bounds, MathHelper.ToRadians(GetRotate()), GetOrigin(elements));
+			renderer.Draw(Path + "_Anime", Position, animation2D.Bounds, MathHelper.ToRadians(GetRotate()), GetOrigin(elements));
 //			renderer.Draw(Path + "_Anime", Position + Scroll(elements), animation2D.Bounds, Color.White);
 		}
 

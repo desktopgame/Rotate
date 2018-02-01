@@ -50,7 +50,7 @@ namespace TestGame.Scenes.Play.Blocks
 			{
 				rotate = 0f;
 			}
-			renderer.Draw(Path, Position + Scroll(elements), MathHelper.ToRadians(rotate), origin);
+			renderer.Draw(Path, Position, MathHelper.ToRadians(rotate), origin);
 			//renderer.Draw(Path, Position + Scroll(elements), Color.White);
 		}
 

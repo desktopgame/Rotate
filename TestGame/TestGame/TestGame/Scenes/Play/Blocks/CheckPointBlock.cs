@@ -80,7 +80,7 @@ namespace TestGame.Scenes.Play.Blocks
 					animation.Update();
 					animation.Loop();
 				}
-				renderer.Draw("Textures/Block/CheckPoint_Blink", Position + Scroll(elements), animation.Bounds, MathHelper.ToRadians(GetRotate()), GetOrigin(elements));
+				renderer.Draw("Textures/Block/CheckPoint_Blink", Position, animation.Bounds, MathHelper.ToRadians(GetRotate()), GetOrigin(elements));
 				//renderer.Draw("Textures/Block/CheckPoint_Blink", Position + Scroll(elements), animation.Bounds, Color.White);
 			}
 		}

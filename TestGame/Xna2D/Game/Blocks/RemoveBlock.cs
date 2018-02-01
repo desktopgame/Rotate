@@ -54,7 +54,7 @@ namespace Xna2D.Game.Blocks
 			} else
 			{
 				float alpha = (1f - ((float)offset / (float)length));
-				renderer.Draw(Path, Position + Scroll(elements), Color.White * alpha);
+				renderer.Draw(Path, Position, Color.White * alpha);
 			}
 		}
 

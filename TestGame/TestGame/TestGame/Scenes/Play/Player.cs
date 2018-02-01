@@ -110,36 +110,15 @@ namespace Xna2D.Game
 		{
 			if(!IsDie)
 			{
-				renderer.Draw(Path, Position + Scroll(elements), Color.White);
+				renderer.Draw(Path, Position, Color.White);
 			} else
 			{
-				renderer.Draw(Path, Position + Scroll(elements), Color.White, blinkTimer.GetAlpha());
+				renderer.Draw(Path, Position, Color.White, blinkTimer.GetAlpha());
 			}
 			//予測線の描画
 			Vector2 from, to;
 			GetLine(out from, out to, elements);
-			//
 			Camera camera = elements.FindObject<Camera>(elem => elem is Camera);
-			Vector2 scr = Scroll(elements);
-			if(camera.State == Camera.Angle.Normal || camera.State == Camera.Angle.Vertical)
-			{
-				from += scr;
-				to += scr;
-			}
-			else if(camera.State == Camera.Angle.Left || camera.State == Camera.Angle.Right)
-			{
-				if(siteIndex == 0 || siteIndex == 2)
-				{
-					from += scr;
-					to.X += scr.X;
-				}
-				else
-				{
-					from += scr;
-					to += scr;
-				}
-			}
-			//
 			int thickness = 3;
 			for(int i = 0; i < thickness; i++)
 			{

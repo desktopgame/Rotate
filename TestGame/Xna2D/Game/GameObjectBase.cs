@@ -125,28 +125,7 @@ namespace Xna2D.Game
 		protected void DrawRotate(GameTime gameTime, Renderer renderer, IGameObjectReadOnlyCollection elements)
 		{
 			float rotate = GetRotate();
-			renderer.Draw(Path, Position + Scroll(elements), MathHelper.ToRadians(rotate), Size / 2);
-		}
-
-		/// <summary>
-		/// プレイヤーとカメラオブジェクトがあるならスクロール位置を計算して返します.
-		/// それ以外なら0/0を返します.
-		/// </summary>
-		/// <param name="elements"></param>
-		/// <returns></returns>
-		protected Vector2 Scroll(IGameObjectReadOnlyCollection elements)
-		{
-			return Vector2.Zero;
-			/*
-			IPlayer player = elements.FindPlayer();
-			Camera camera = elements.FindObject<Camera>(elem => elem is Camera);
-			if(player == null || camera == null)
-			{
-				return Vector2.Zero;
-			}
-			Vector2 ret = camera.Scroll(player.Position);
-			return ret;
-			*/
+			renderer.Draw(Path, Position, MathHelper.ToRadians(rotate), Size / 2);
 		}
 		
 		#region IGameData
