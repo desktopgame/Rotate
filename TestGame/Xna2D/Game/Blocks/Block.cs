@@ -14,14 +14,7 @@ namespace Xna2D.Game.Blocks
 	public class Block : GameObjectBase
 	{
 		private Camera.Angle oldCameraState;
-
-		protected static readonly string KEY_ANCHOR_TOP = "AnchorTop";
-		protected static readonly string KEY_ANCHOR_BOTTOM = "AnchorBottom";
-		protected static readonly string KEY_ANCHOR_LEFT = "AnchorLeft";
-		protected static readonly string KEY_ANCHOR_RIGHT = "AnchorRight";
-		protected static readonly string KEY_IS_SNAP = "IsSnap";
-		protected static readonly string KEY_SNAP_ID = "SnapID";
-
+		
 		public Block(string path, float width, float height) : base(path)
 		{
 			this.Width = width;
@@ -36,42 +29,20 @@ namespace Xna2D.Game.Blocks
 
 		public override void Update(GameTime gameTime, IGameObjectReadOnlyCollection elements)
 		{
-		//	if(AnchorLeft || AnchorTop || AnchorRight || AnchorBottom)
-		//		Debug.WriteLine("Left:" + AnchorLeft + " Top:" + AnchorTop + " Right:" + AnchorRight + " Bottom:" + AnchorBottom);
 		}
 
 		public override bool IsReadOnly(string key)
 		{
-			if(key == KEY_IS_SNAP ||
-			   key == KEY_SNAP_ID)
+			//以前のステージデータとの互換性のために残しています
+			//(このデータはもう使用していないので書き換えられても問題はないのですが念のため)
+			if(key == "IsSnap" ||
+			   key == "SnapID")
 			{
 				return false;
 			}
 			return base.IsReadOnly(key);
 		}
-
-		public override void Write(Dictionary<string, string> d)
-		{
-			base.Write(d);
-		//	d[KEY_ANCHOR_TOP] = AnchorTop.ToString();
-		//	d[KEY_ANCHOR_BOTTOM] = AnchorBottom.ToString();
-		//	d[KEY_ANCHOR_LEFT] = AnchorLeft.ToString();
-		//	d[KEY_ANCHOR_RIGHT] = AnchorRight.ToString();
-		//	d[KEY_IS_SNAP] = IsSnap.ToString();
-		//	d[KEY_SNAP_ID] = SnapID;
-		}
-
-		public override void Read(Dictionary<string, string> d)
-		{
-			base.Read(d);
-		//	this.AnchorTop = d.ParseBoolean(KEY_ANCHOR_TOP);
-		//	this.AnchorBottom = d.ParseBoolean(KEY_ANCHOR_BOTTOM);
-		//	this.AnchorLeft = d.ParseBoolean(KEY_ANCHOR_LEFT);
-		//	this.AnchorRight = d.ParseBoolean(KEY_ANCHOR_RIGHT);
-		//	this.IsSnap = d.ParseBoolean(KEY_IS_SNAP);
-		//	this.SnapID = d.ContainsKey(KEY_SNAP_ID) ? d[KEY_SNAP_ID] : null;
-		}
-
+		
 		protected override IGameObject NewInstance()
 		{
 			return new Block(Path, Width, Height);
