@@ -8,11 +8,7 @@ using System.Diagnostics;
 
 namespace Xna2D.Game
 {
-	/// <summary>
-	/// 廃止されたオブジェクトです.
-	/// 互換性のために残されています。
-	/// (削除すると過去のステージデータをロードできないため)
-	/// </summary>
+	[Compatibility]
 	public class Rotater : GameObjectBase
 	{
 		public Rotater() : base(null)
