@@ -57,6 +57,7 @@
 			this.layerComboBox = new System.Windows.Forms.ComboBox();
 			this.formC = new System.Windows.Forms.Panel();
 			this.selectGroupBox = new System.Windows.Forms.GroupBox();
+			this.snapButton = new System.Windows.Forms.Button();
 			this.tagSelectButton = new System.Windows.Forms.Button();
 			this.tagClearButton = new System.Windows.Forms.Button();
 			this.editAllButton = new System.Windows.Forms.Button();
@@ -74,7 +75,6 @@
 			this.drawRadioButton = new System.Windows.Forms.RadioButton();
 			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
 			this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-			this.snapButton = new System.Windows.Forms.Button();
 			this.menuStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.toolPictureSplit)).BeginInit();
 			this.toolPictureSplit.Panel1.SuspendLayout();
@@ -117,7 +117,7 @@
             this.saveMenuItem});
 			this.fileMenu.Name = "fileMenu";
 			this.fileMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F)));
-			this.fileMenu.Size = new System.Drawing.Size(93, 29);
+			this.fileMenu.Size = new System.Drawing.Size(94, 29);
 			this.fileMenu.Text = "ファイル(F)";
 			// 
 			// newMenuItem
@@ -125,7 +125,7 @@
 			this.newMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newMenuItem.Image")));
 			this.newMenuItem.Name = "newMenuItem";
 			this.newMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-			this.newMenuItem.Size = new System.Drawing.Size(313, 30);
+			this.newMenuItem.Size = new System.Drawing.Size(312, 30);
 			this.newMenuItem.Text = "新規作成(N)";
 			this.newMenuItem.Click += new System.EventHandler(this.newMenuItem_Click);
 			// 
@@ -134,7 +134,7 @@
 			this.openMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("openMenuItem.Image")));
 			this.openMenuItem.Name = "openMenuItem";
 			this.openMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-			this.openMenuItem.Size = new System.Drawing.Size(313, 30);
+			this.openMenuItem.Size = new System.Drawing.Size(312, 30);
 			this.openMenuItem.Text = "開く(O)";
 			this.openMenuItem.Click += new System.EventHandler(this.openMenuItem_Click);
 			// 
@@ -143,7 +143,7 @@
 			this.saveAsMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveAsMenuItem.Image")));
 			this.saveAsMenuItem.Name = "saveAsMenuItem";
 			this.saveAsMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-			this.saveAsMenuItem.Size = new System.Drawing.Size(313, 30);
+			this.saveAsMenuItem.Size = new System.Drawing.Size(312, 30);
 			this.saveAsMenuItem.Text = "名前を付けて保存(A)";
 			this.saveAsMenuItem.Click += new System.EventHandler(this.saveAsMenuItem_Click);
 			// 
@@ -152,7 +152,7 @@
 			this.saveMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveMenuItem.Image")));
 			this.saveMenuItem.Name = "saveMenuItem";
 			this.saveMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-			this.saveMenuItem.Size = new System.Drawing.Size(313, 30);
+			this.saveMenuItem.Size = new System.Drawing.Size(312, 30);
 			this.saveMenuItem.Text = "上書き保存(S)";
 			this.saveMenuItem.Click += new System.EventHandler(this.saveMenuItem_Click);
 			// 
@@ -414,8 +414,20 @@
 			this.selectGroupBox.TabStop = false;
 			this.selectGroupBox.Text = "クイックアクション";
 			// 
+			// snapButton
+			// 
+			this.snapButton.Enabled = false;
+			this.snapButton.Location = new System.Drawing.Point(21, 179);
+			this.snapButton.Name = "snapButton";
+			this.snapButton.Size = new System.Drawing.Size(156, 37);
+			this.snapButton.TabIndex = 14;
+			this.snapButton.Text = "スナップ";
+			this.snapButton.UseVisualStyleBackColor = true;
+			this.snapButton.Click += new System.EventHandler(this.snapButton_Click);
+			// 
 			// tagSelectButton
 			// 
+			this.tagSelectButton.Enabled = false;
 			this.tagSelectButton.Location = new System.Drawing.Point(566, 127);
 			this.tagSelectButton.Name = "tagSelectButton";
 			this.tagSelectButton.Size = new System.Drawing.Size(156, 37);
@@ -426,6 +438,7 @@
 			// 
 			// tagClearButton
 			// 
+			this.tagClearButton.Enabled = false;
 			this.tagClearButton.Location = new System.Drawing.Point(387, 127);
 			this.tagClearButton.Name = "tagClearButton";
 			this.tagClearButton.Size = new System.Drawing.Size(156, 37);
@@ -576,16 +589,6 @@
 			this.openFileDialog.FileName = "無題.text";
 			this.openFileDialog.RestoreDirectory = true;
 			this.openFileDialog.ShowHelp = true;
-			// 
-			// snapButton
-			// 
-			this.snapButton.Location = new System.Drawing.Point(21, 179);
-			this.snapButton.Name = "snapButton";
-			this.snapButton.Size = new System.Drawing.Size(156, 37);
-			this.snapButton.TabIndex = 14;
-			this.snapButton.Text = "スナップ";
-			this.snapButton.UseVisualStyleBackColor = true;
-			this.snapButton.Click += new System.EventHandler(this.snapButton_Click);
 			// 
 			// Form1
 			// 

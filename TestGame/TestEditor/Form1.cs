@@ -414,116 +414,6 @@ namespace TestEditor
 			pictureBox.Refresh();
 		}
 
-
-		private void tagClearButton_Click(object sender, EventArgs e)
-		{
-			Dictionary<string, string> dictionary = new Dictionary<string, string>();
-			Array.ForEach(visualEditor.LayerHierarchy, i =>
-			{
-				VisualLayer layer = visualEditor[i];
-				for(int j = 0; j < layer.Items.Count; j++)
-				{
-					IGameObject gObj = AsGameObject(layer.Items[j]);
-					gObj.Write(dictionary);
-					dictionary["Tag"] = "null";
-					gObj.Read(dictionary);
-					dictionary.Clear();
-				}
-			});
-		}
-
-		private void tagSelectButton_Click(object sender, EventArgs e)
-		{
-			VisualContent[] selectedItems = visualEditor.Current.GetSelectedContents();
-			if(selectedItems.Length == 0)
-			{
-				return;
-			}
-			List<string> keyList = new List<string>();
-			Dictionary<string, string> dictionary = new Dictionary<string, string>();
-			//全てのレイヤーの
-			Array.ForEach(visualEditor.LayerHierarchy, i =>
-			{
-				//全てのアイテムの
-				VisualLayer layer = visualEditor[i];
-				Debug.WriteLine("Layer -> " + i);
-				for(int j = 0; j < layer.Items.Count; j++)
-				{
-					//タグ要素をリストへ追加
-					IGameObject gObj = AsGameObject(layer.Items[j]);
-					gObj.Write(dictionary);
-					string eKey = dictionary["Tag"];
-					Debug.WriteLine(eKey);
-					if(!keyList.Contains(eKey))
-					{
-						keyList.Add(eKey);
-					}
-					dictionary.Clear();
-				}
-			});
-			TagInputForm tagInputForm = new TagInputForm();
-			tagInputForm.SetKeyList(keyList.ToArray());
-			DialogResult res = tagInputForm.ShowDialog();
-			if(res != DialogResult.OK)
-			{
-				return;
-			}
-			Array.ForEach(selectedItems, item =>
-			{
-				IGameObject gObj = AsGameObject(item);
-				gObj.Write(dictionary);
-				dictionary["Tag"] = tagInputForm.GetGeneratedTag();
-				gObj.Read(dictionary);
-				dictionary.Clear();
-			});
-		}
-		
-		private void snapButton_Click(object sender, EventArgs e)
-		{
-			VisualContent[] items = visualEditor.Current.GetSelectedContents();
-			Dictionary<string, string> di = new Dictionary<string, string>();
-			string key = "";
-			bool nameOk = true;
-			bool breakFor = false;
-			do
-			{
-				key = RandomString();
-				for(int i = 0; i < visualEditor.Current.Items.Count; i++)
-				{
-					VisualContent content = visualEditor.Current.Items[i];
-					VCImpl impl = content as VCImpl;
-					IGameObject gObj = impl.GameObject;
-					di.Clear();
-					gObj.Write(di);
-					breakFor = false;
-					nameOk = true;
-					foreach(KeyValuePair<string, string> pair in di)
-					{
-						if(pair.Key == "SnapID" && pair.Value == key)
-						{
-							breakFor = true;
-							nameOk = false;
-							break;
-						}
-					}
-					if(breakFor)
-					{
-						break;
-					}
-				}
-			} while(!nameOk);
-			Array.ForEach(items, item =>
-			{
-				di.Clear();
-				VCImpl vc = item as VCImpl;
-				IGameObject gObj = vc.GameObject;
-				gObj.Write(di);
-				di["SnapID"] = key;
-				gObj.Read(di);
-			});
-
-		}
-
 		private string RandomString()
 		{
 			StringBuilder sb = new StringBuilder();
@@ -701,5 +591,102 @@ namespace TestEditor
 		}
 		#endregion
 
+
+		#region 廃止
+
+		//廃止
+		private void tagClearButton_Click(object sender, EventArgs e) {
+			Dictionary<string, string> dictionary = new Dictionary<string, string>();
+			Array.ForEach(visualEditor.LayerHierarchy, i => {
+				VisualLayer layer = visualEditor[i];
+				for(int j = 0; j < layer.Items.Count; j++) {
+					IGameObject gObj = AsGameObject(layer.Items[j]);
+					gObj.Write(dictionary);
+					dictionary["Tag"] = "null";
+					gObj.Read(dictionary);
+					dictionary.Clear();
+				}
+			});
+		}
+
+		private void tagSelectButton_Click(object sender, EventArgs e) {
+			VisualContent[] selectedItems = visualEditor.Current.GetSelectedContents();
+			if(selectedItems.Length == 0) {
+				return;
+			}
+			List<string> keyList = new List<string>();
+			Dictionary<string, string> dictionary = new Dictionary<string, string>();
+			//全てのレイヤーの
+			Array.ForEach(visualEditor.LayerHierarchy, i => {
+				//全てのアイテムの
+				VisualLayer layer = visualEditor[i];
+				Debug.WriteLine("Layer -> " + i);
+				for(int j = 0; j < layer.Items.Count; j++) {
+					//タグ要素をリストへ追加
+					IGameObject gObj = AsGameObject(layer.Items[j]);
+					gObj.Write(dictionary);
+					string eKey = dictionary["Tag"];
+					Debug.WriteLine(eKey);
+					if(!keyList.Contains(eKey)) {
+						keyList.Add(eKey);
+					}
+					dictionary.Clear();
+				}
+			});
+			TagInputForm tagInputForm = new TagInputForm();
+			tagInputForm.SetKeyList(keyList.ToArray());
+			DialogResult res = tagInputForm.ShowDialog();
+			if(res != DialogResult.OK) {
+				return;
+			}
+			Array.ForEach(selectedItems, item => {
+				IGameObject gObj = AsGameObject(item);
+				gObj.Write(dictionary);
+				dictionary["Tag"] = tagInputForm.GetGeneratedTag();
+				gObj.Read(dictionary);
+				dictionary.Clear();
+			});
+		}
+
+		private void snapButton_Click(object sender, EventArgs e) {
+			VisualContent[] items = visualEditor.Current.GetSelectedContents();
+			Dictionary<string, string> di = new Dictionary<string, string>();
+			string key = "";
+			bool nameOk = true;
+			bool breakFor = false;
+			do {
+				key = RandomString();
+				for(int i = 0; i < visualEditor.Current.Items.Count; i++) {
+					VisualContent content = visualEditor.Current.Items[i];
+					VCImpl impl = content as VCImpl;
+					IGameObject gObj = impl.GameObject;
+					di.Clear();
+					gObj.Write(di);
+					breakFor = false;
+					nameOk = true;
+					foreach(KeyValuePair<string, string> pair in di) {
+						if(pair.Key == "SnapID" && pair.Value == key) {
+							breakFor = true;
+							nameOk = false;
+							break;
+						}
+					}
+					if(breakFor) {
+						break;
+					}
+				}
+			} while(!nameOk);
+			Array.ForEach(items, item => {
+				di.Clear();
+				VCImpl vc = item as VCImpl;
+				IGameObject gObj = vc.GameObject;
+				gObj.Write(di);
+				di["SnapID"] = key;
+				gObj.Read(di);
+			});
+
+		}
+
+		#endregion
 	}
 }
