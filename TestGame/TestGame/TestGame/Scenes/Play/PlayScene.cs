@@ -92,7 +92,7 @@ namespace TestGame.Scenes.Play
 			for(int i = 0; i < gObjCollection.Count; i++)
 			{
 				var e = gObjCollection[i];
-				if(e == time) {
+				if(e == time || e is TimeObject) {
 					continue;
 				}
 				e.Draw(gameTime, renderer, gObjCollection);
