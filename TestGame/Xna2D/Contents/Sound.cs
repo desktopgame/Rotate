@@ -49,8 +49,8 @@ namespace Xna2D.Contents
 		/// <param name="assetName"></param>
 		public void PlayBGM(string assetName)
 		{
-			//			MediaPlayer.Volume = 0.05f;
-			MediaPlayer.Volume = 0f;
+			MediaPlayer.Volume = 0.05f;
+			//MediaPlayer.Volume = 0f;
 			MediaPlayer.Play(songDictionary[assetName]);
 		}
 
