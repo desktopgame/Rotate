@@ -13,6 +13,9 @@ using TestGame.Scenes.Play.Blocks;
 
 namespace TestGame.Scenes.Play
 {
+	/// <summary>
+	/// プレイ画面.
+	/// </summary>
 	public class PlayScene : SceneBase, ILayered
 	{
 		private struct RectAlpha

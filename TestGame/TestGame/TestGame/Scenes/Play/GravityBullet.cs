@@ -30,7 +30,7 @@ namespace TestGame.Scenes.Play
 			set; get;
 		}
 
-		private Vector2 pc;
+		private Vector2 origin;
 		private bool animationNow;
 		private float offset;
 		private FrameTimer timer;
@@ -58,15 +58,6 @@ namespace TestGame.Scenes.Play
 			Vector2 period = Vector2.Lerp(Position, Target, 0.1f);
 			this.X = period.X;
 			this.Y = period.Y;
-			/*
-			float sp = 20f;
-			float absX = Math.Abs(X - Target.X);
-			float absY = Math.Abs(Y - Target.Y);
-			if(Position.X < Target.X) X += sp;
-			else X -= sp;
-			if(Position.Y < Target.Y) Y += sp;
-			else Y -= sp;
-			*/
 			bool exit = false;
 			elements.ForEach((obj) =>
 			{
@@ -82,7 +73,7 @@ namespace TestGame.Scenes.Play
 				Camera camera = elements.FindObject<Camera>(elem => elem is Camera);
 				IPlayer player = elements.FindObject<IPlayer>(elem => elem is IPlayer);
 				//this.pc = (camera.ScrollArea / 2);
-				this.pc = GameConstants.SCREEN_SIZE / 2;
+				this.origin = GameConstants.SCREEN_SIZE / 2;
 				this.animationNow = true;
 				timer.Clear();
 				BeginRotateImpl(elements);
@@ -134,8 +125,8 @@ namespace TestGame.Scenes.Play
 				}
 				Vector2 p1 = rObj.RotateOrigin;
 				Vector2 pd = Vector2.Zero;
-				pd.X = (p1.X - pc.X) * cos - (p1.Y - pc.Y) * sin + pc.X;
-				pd.Y = (p1.X - pc.X) * sin - (p1.Y - pc.Y) * cos + pc.Y;
+				pd.X = (p1.X - origin.X) * cos - (p1.Y - origin.Y) * sin + origin.X;
+				pd.Y = (p1.X - origin.X) * sin - (p1.Y - origin.Y) * cos + origin.Y;
 
 				//pd = Vector2.Transform(p1 - pc, Matrix.CreateRotationZ(R));
 				rObj.Progress(elements, offset, pd);

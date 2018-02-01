@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace EditorUtilities.Undo
 {
 	/// <summary>
-	/// 変更を記録して元に戻すためのキューです.
+	/// 変更を記録して元に戻すためのスタックです.
 	/// </summary>
 	public class UndoManager : UndoableEdit, Editable
 	{

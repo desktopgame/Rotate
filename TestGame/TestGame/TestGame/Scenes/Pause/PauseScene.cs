@@ -10,6 +10,9 @@ using Xna2D.Input;
 
 namespace TestGame.Scenes.Pause
 {
+	/// <summary>
+	/// ポーズ画面.
+	/// </summary>
 	public class PauseScene : SceneBase
 	{
 		private IScene playScene;

@@ -206,13 +206,11 @@ namespace Xna2D.Game
 			float walkSpeed = 10f;
 			if(MOVE_LEFT.IsDetect())
 			{
-				ReverseSite(Direction.Left);
 				this.VX = -walkSpeed;
 				this.direction = Direction.Left;
 			}
 			else if(MOVE_RIGHT.IsDetect())
 			{
-				ReverseSite(Direction.Right);
 				this.VX = walkSpeed;
 				this.direction = Direction.Right;
 			}
@@ -327,27 +325,6 @@ namespace Xna2D.Game
 			elements.AddLater(new IGameObject[] { bullet });
 		}
 		
-		private void ReverseSite(Direction newDir)
-		{
-			if(this.direction == newDir)
-			{
-				return;
-			}
-			//if((direction != Direction.Left &&
-			//	siteIndex >= LEFT_SITE_MIN_INDEX &&
-			//	siteIndex <= LEFT_SITE_MAX_INDEX) ||
-			//   (direction != Direction.Right &&
-			//	siteIndex >= RIGHT_SITE_MIN_INDEX &&
-			//	siteIndex <= RIGHT_SITE_MAX_INDEX))
-			//{
-			//	return;
-			//}
-		//	int len = SITE_POSITIONS.Length;
-		//	int diff = REVERSE_POINT - siteIndex;
-		//	int newIndex = REVERSE_POINT + diff;
-		//	Debug.WriteLine(siteIndex + "/" + newIndex);
-		//	this.siteIndex = newIndex;
-		}
 
 		protected override void CollisionVertical(IGameObject o, Direction dir)
 		{

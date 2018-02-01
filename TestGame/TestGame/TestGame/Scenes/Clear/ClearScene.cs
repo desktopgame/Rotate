@@ -14,6 +14,9 @@ using Xna2D.Utilities;
 
 namespace TestGame.Scenes.Clear
 {
+	/// <summary>
+	/// クリア画面.
+	/// </summary>
 	public class ClearScene : SceneBase
 	{
 		private IScene playScene;

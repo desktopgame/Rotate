@@ -19,6 +19,12 @@ namespace EditorUtilities.Undo
 			this.edits = new List<UndoableEdit>();
 		}
 
+		/// <summary>
+		/// 指定の変更をこの変更に含めます.
+		/// (Undo/Redo時に一緒に実行される。)
+		/// </summary>
+		/// <param name="edit"></param>
+		/// <returns></returns>
 		public CompoundEdit AddEdit(UndoableEdit edit)
 		{
 			edits.Add(edit);
