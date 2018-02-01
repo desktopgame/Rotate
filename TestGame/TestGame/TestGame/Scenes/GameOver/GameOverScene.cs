@@ -21,6 +21,7 @@ namespace TestGame.Scenes.GameOver
 		private Vector2 continuePosition;
 		private float yesnoAlpha;
 		private int selectedIndex;
+		private Sound sound;
 
 		private static readonly Handle ENTER = new Handle(
 			(index, mouse, key) => key.IsKeyDown(Keys.Space) | key.IsKeyDown(Keys.Enter),
@@ -42,9 +43,10 @@ namespace TestGame.Scenes.GameOver
 			GameOverScene.CONTINUE_TO.X -= 100;
 		}
 
-		public GameOverScene(IScene playScene)
+		public GameOverScene(IScene playScene, Sound sound)
 		{
 			this.playScene = playScene;
+			this.sound = sound;
 		}
 
 		public override void Update(GameTime gameTime)
@@ -109,6 +111,12 @@ namespace TestGame.Scenes.GameOver
 			//デフォルトではYes, Noともに透明度0
 			this.yesnoAlpha = 0f;
 			this.selectedIndex = 0;
+			sound.PlayBGM("Sound/Song/GameOver");
+		}
+
+		public override void Hide() {
+			base.Hide();
+			sound.StopBGM();
 		}
 	}
 }

@@ -90,7 +90,7 @@ namespace TestGame
 			sceneManager[(int)SceneTypes.Select] = wrap(new SelectScene(stageSelector, sound));
 			sceneManager[(int)SceneTypes.Play] = wrap(playScene);
 			sceneManager[(int)SceneTypes.Clear] = new ClearScene(playScene, stageSelector, sound);
-			sceneManager[(int)SceneTypes.GameOver] = new GameOverScene(playScene);
+			sceneManager[(int)SceneTypes.GameOver] = new GameOverScene(playScene, sound);
 			sceneManager[(int)SceneTypes.Exit] = new ExitScene();
 			sceneManager[(int)SceneTypes.Credit] = wrap(new CreditScene());
 			sceneManager[(int)SceneTypes.Pause] = new PauseScene(playScene, stageSelector, sound);
